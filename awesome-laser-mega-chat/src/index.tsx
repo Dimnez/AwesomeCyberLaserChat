@@ -5,21 +5,28 @@ import * as serviceWorker from './serviceWorker';
 import CommunicationFeedProviderService from './models/CommunicationFeedProviderService';
 import Pusher from 'pusher-js';
 
-var pusher = new Pusher('11b4ad3a39f15ba40603', {
-  cluster: 'eu'
-});
+async function subscribeToPusher()
+{
+  Pusher.logToConsole = true;
 
-const channel = pusher.subscribe('public-channel');
-const feed = CommunicationFeedProviderService.getCommunicationFeed();
+  const pusher = await new Pusher('11b4ad3a39f15ba40603',  {
+    cluster: 'eu'
+  });
 
-//connecting the feed object to pusher
-channel.bind('client-message', function (data:any) {
-  feed.messages.push(JSON.stringify(data));
-  console.log(data);
-});
+  const channel = await pusher.subscribe('public-channel');
+  const feed = CommunicationFeedProviderService.getCommunicationFeed();
 
-channel.trigger('client-message', {"message": "hello world"});
+  await channel.bind('pusher:subscription_succeeded', function() {
+     channel.trigger('client-message', {"message": "hello world"});
+  });
 
+  await channel.bind('client-message', function(data:any) {
+    alert(JSON.stringify(data));
+  });
+
+}
+
+subscribeToPusher();
 
 ReactDOM.render(
   <React.StrictMode>

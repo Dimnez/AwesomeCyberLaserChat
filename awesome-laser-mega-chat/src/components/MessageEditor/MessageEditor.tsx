@@ -5,7 +5,8 @@ import CommunicationFeedProviderService from '../../models/CommunicationFeedProv
 const MessageEditor: FunctionComponent<{}> = props => {
 
     const sendMessage = () => {
-      //todo: send message
+      const pusherFeed= CommunicationFeedProviderService.getCommunicationFeed();
+     // pusherFeed.trigger();
     };
 
     return <div style = {{display : 'flex', width : '100%'}}>

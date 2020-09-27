@@ -4,5 +4,5 @@ export default class CommunicationFeed {
 
   @observable
   messages: string[] = [];
-
+  channels: any[] = [];
 }
