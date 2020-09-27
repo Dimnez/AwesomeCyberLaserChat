@@ -1,15 +1,16 @@
 import React from 'react';
 import './App.css';
-import UpdateModelTextButton from "./components/UpdateModelTextButton";
-import TextComponentContainer from "./components/TextComponentContainer";
+import AppLayoutView from './views/AppLayoutView/AppLayoutView';
+import MessagingView from './views/MessagingView/MessagingView';
+import MessageEditor from './components/MessageEditor/MessageEditor';
 
 function App() {
 
   return (
-    <div className="App">
-      <UpdateModelTextButton />
-     <TextComponentContainer />
-    </div>
+   <AppLayoutView>
+     <MessagingView></MessagingView>
+     <MessageEditor></MessageEditor>
+   </AppLayoutView>
   );
 }
 
