@@ -1,8 +1,9 @@
 import React from 'react';
-import './App.css';
 import AppLayoutView from './views/AppLayoutView/AppLayoutView';
 import MessagingView from './views/MessagingView/MessagingView';
 import MessageEditor from './components/MessageEditor/MessageEditor';
+import './App.css';
+
 
 function App() {
 

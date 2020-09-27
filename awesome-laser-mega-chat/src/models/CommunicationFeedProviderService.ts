@@ -7,5 +7,4 @@ export default class CommunicationFeedProviderService {
   public static getCommunicationFeed(): CommunicationFeed {
     return CommunicationFeedProviderService.model;
   }
-
 }
