@@ -1,25 +1,36 @@
 import React, { FunctionComponent } from 'react';
 import { AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import { ThemeProvider } from '@material-ui/core/styles';
+import purple from '@material-ui/core/colors/purple';
+import { createMuiTheme } from '@material-ui/core/styles';
 import './AppLayoutView.css';
-
 
 const AppLayoutView: FunctionComponent<{}> = props => {
 
-    return <div><AppBar position ="static"> 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#ff0066',
+    },
+    secondary: {
+      main: '#f44336',
+    },
+  },
+});
+
+    return <div id ="App">
+      <ThemeProvider theme={theme}>
+      <AppBar position ="static"> 
     <Toolbar>
-      <IconButton edge="start" color="inherit" aria-label="menu">
-        <MenuIcon />
-      </IconButton>
       <Typography variant="h6" style={{ flex: 1 }}>
-        ALMC // Awesome Laser Mega Chat
+        Awesome Laser Mega Chat
       </Typography>
-      <Button color="inherit">Join</Button>
     </Toolbar>
   </AppBar>
-  <div>
       {props.children}
-  </div></div>
+  </ThemeProvider>
+  </div>
 };
 
 export default AppLayoutView;

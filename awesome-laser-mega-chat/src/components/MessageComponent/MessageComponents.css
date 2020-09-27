@@ -1,0 +1,50 @@
+.MessageBubble
+{
+    position: relative;
+    box-sizing: border-box;
+    width:fit-content;
+    max-width:calc(100%-1rem);
+    padding:1rem;
+    background:rgba(0,0,0,0.1);
+    margin:2.5rem 0;
+    margin-left:1rem;
+    border-radius: 1rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    animation:newMessage 1s ease;
+}
+
+.MessageBubble__profilePicture
+{
+    position: absolute;
+    width:fit-content;
+    height:fit-content;
+    transform: translateX(-52px);
+    text-align: center;
+    padding:1rem;
+    font-size:1.5em;
+}
+
+@keyframes newMessage
+{
+    0%
+    {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+
+    100%
+    {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    
+}
+
+.MessageBubble__timestamp
+{
+    position: absolute;
+    bottom:-1.2rem;
+    left:0.7rem;
+    color:rgba(0,0,0,0.8);
+    font-size: 0.8em;
+}

@@ -1,0 +1,15 @@
+.MessageEditor
+{
+
+    border-top:4px solid rgba(0,0,0,0.1);  
+}
+
+.MessageEditor__inner
+{
+    display:flex;
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    box-sizing: border-box;
+    padding:2rem 2rem;
+}
