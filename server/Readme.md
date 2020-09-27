@@ -1,0 +1,4 @@
+# ALMC Server
+
+> npm start
+
