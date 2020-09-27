@@ -1,0 +1,29 @@
+.EmojiSelection
+{
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    justify-content: center;
+    box-sizing: border-box;
+    padding:1rem;
+    text-align: center;
+}
+a.EmojiSelection__item
+{
+    font-size:3em;
+    display:inline-block;
+    text-align: center;
+   
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    padding:1rem;
+    
+    border:1px solid rgba(0,0,0,0)
+}
+
+a.EmojiSelection__item:hover
+{
+    transform:scale(1.1);
+    
+    border:1px solid rgba(0,0,0,0.1)
+}

@@ -28,7 +28,7 @@ async function subscribeToPusher()
     ],120);
   });
 
-  await channel.bind('client-message', feed.receiveMessage);
+  await channel.bind('client-message', (data:any)=>{ feed.receiveMessage(data); });
 }
 
 subscribeToPusher();

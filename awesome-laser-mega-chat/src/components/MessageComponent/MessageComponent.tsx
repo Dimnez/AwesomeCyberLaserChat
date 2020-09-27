@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import {observer} from "mobx-react";
 import './MessageComponents.css';
 
 const MessageComponent : FunctionComponent<{message:any}> = props => {
@@ -17,4 +18,4 @@ return <div className='MessageBubble'>
    
 };
 
-export default MessageComponent;
+export default observer(MessageComponent);

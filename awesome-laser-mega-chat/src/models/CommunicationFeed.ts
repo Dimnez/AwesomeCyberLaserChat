@@ -13,7 +13,7 @@ export default class CommunicationFeed {
   activeChannel: any = null;
 
   @observable
-  user: any=[];
+  user: any=null;
 
   private dialogueProgress = {step: 0, running : false};
 
@@ -24,8 +24,8 @@ export default class CommunicationFeed {
     {
       setTimeout(
         ()=>{
-            this.receiveMessage({'sender': {'emoji': '🐌'}, 
-            message : messages[this.dialogueProgress.step]})
+
+            this.localBotMessage(messages[this.dialogueProgress.step]);
 
             this.dialogueProgress.step++;
         },timeout*messages[this.dialogueProgress.step].length
@@ -39,6 +39,12 @@ export default class CommunicationFeed {
       this.dialogueProgress.step = 0;
       this.dialogueProgress.running = false;
     }
+  }
+
+  localBotMessage(content:string)
+  {
+    this.receiveMessage({'sender': {'emoji': '🐌'}, 
+            message : content})
   }
 
   receiveMessage(data:any)

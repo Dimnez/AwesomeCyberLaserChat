@@ -2,7 +2,9 @@ import React, { FunctionComponent,useState  } from 'react';
 import { TextField , Button } from '@material-ui/core';
 import CommunicationFeedProviderService from '../../models/CommunicationFeedProviderService';
 import './MessageEditor.css';
-
+import SendIcon from '@material-ui/icons/Send';
+import {observer} from "mobx-react";
+import EmojiSelection from '../../components/EmojiSelection/EmojiSelection';
 
 const MessageEditor: FunctionComponent<{}> = props => {
 
@@ -15,19 +17,18 @@ let [message_value,setMessage_value] =useState("");
     if(message_value.trim() != "")
     {
       feed.sendMessage(message_value);
+      setMessage_value("");
     }
     else
     { 
-      feed.printDialogue(["Whoops..","I'm sorry, but this not a valid message :-/"],30);
-    
+      //todo: alert for messages which are not valid
     }
-
 
   };
 
     return <div className='MessageEditor'>
 
-      {feed.user == null ? "" :
+      {feed.user == null ? <EmojiSelection></EmojiSelection> :
       <div className ='MessageEditor__inner'>
      <TextField
           label="Your Message"
@@ -40,9 +41,9 @@ let [message_value,setMessage_value] =useState("");
           onChange={(event)=>{setMessage_value(event.target.value);}}
           variant="outlined"
         />
-        <Button color="primary" onClick={sendMessage}>Send</Button>
+        <Button color="primary" onClick={sendMessage}> <SendIcon></SendIcon></Button>
         </div>
    } </div>
 };
 
-export default MessageEditor;
+export default observer(MessageEditor);

@@ -3,6 +3,7 @@ import { AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/co
 import MenuIcon from '@material-ui/icons/Menu';
 import { ThemeProvider } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
+import {observer} from "mobx-react";
 import { createMuiTheme } from '@material-ui/core/styles';
 import './AppLayoutView.css';
 
@@ -23,8 +24,8 @@ const theme = createMuiTheme({
       <ThemeProvider theme={theme}>
       <AppBar position ="static"> 
     <Toolbar>
-      <Typography variant="h6" style={{ flex: 1 }}>
-        Awesome Laser Mega Chat
+      <Typography variant="h6" style={{ flex: 1,textAlign : 'center' }}>
+        Awesome Cyber Laser Mega Chat
       </Typography>
     </Toolbar>
   </AppBar>
@@ -33,4 +34,4 @@ const theme = createMuiTheme({
   </div>
 };
 
-export default AppLayoutView;
+export default observer(AppLayoutView);
